@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  business_type: MyString
+  value: 1
+  iptu: 1
+  condominium: 1
+  size: 1
+  rooms: 1
+  zone: MyString
+  address: MyString
+  number: MyString
+  neighborhood: MyString
+  complement: MyString
+  cep: MyString
+  full_price: 1
+
+two:
+  business_type: MyString
+  value: 1
+  iptu: 1
+  condominium: 1
+  size: 1
+  rooms: 1
+  zone: MyString
+  address: MyString
+  number: MyString
+  neighborhood: MyString
+  complement: MyString
+  cep: MyString
+  full_price: 1
