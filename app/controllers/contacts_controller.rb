@@ -1,11 +1,11 @@
 class ContactsController < ApplicationController
-  include Helpers::WhatsappMessaging
+  include WhatsappMessaging
 
   before_action :initialize_messaging_client, only: :create
   before_action :set_propertie, only: :create, if: -> { contact_params[:propertie_id].presence }
 
   def create
-    if send_whatsapp_message != 201
+    if send_business_whatsapp_message != 201
       render json: { successful: true }, status: 200
     else
       resnder json: { successful: false }, status: 422
@@ -18,7 +18,6 @@ class ContactsController < ApplicationController
     params.permit(
       :name,
       :phone,
-      :business_type,
       :message_type,
       :propertie_id
     )
@@ -36,7 +35,7 @@ class ContactsController < ApplicationController
 
   # Bussines -> customer contact
   def send_business_whatsapp_message
-    response = @client.message.create(
+    response = @client.messages.create(
       body: send(contact_params[:message_type]),
       from: "whatsapp:#{ENV['COMPANY_WHATSAPP_CONTACT']}",
       to: "whatsapp:#{contact_params[:phone]}"
