@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   include Authorization::ApiToken
-  
+
   before_action :set_propertie, only: %i[show edit update]
 
   def index
