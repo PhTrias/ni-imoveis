@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-
-  resources :properties
-  resources :contacts, only: :create
+  namespace :api do
+    resources :properties
+    resources :contacts, only: :create
+  end
 end

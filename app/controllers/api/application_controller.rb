@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::API
+class Api::ApplicationController < ActionController::Base
 
   def pagination_meta(objects)
     {

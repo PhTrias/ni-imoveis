@@ -1,4 +1,5 @@
-class ContactsController < ApplicationController
+class Api::ContactsController < Api::ApplicationController
+  include Authorization::ApiToken
   include WhatsappMessaging
 
   before_action :set_propertie, only: :create, if: -> { contact_params[:propertie_id].presence }

@@ -1,4 +1,4 @@
-class PropertiesController < ApplicationController
+class Api::PropertiesController < Api::ApplicationController
   include Authorization::ApiToken
 
   before_action :set_propertie, only: %i[show edit update]
