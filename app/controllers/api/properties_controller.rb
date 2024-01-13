@@ -1,6 +1,7 @@
 class Api::PropertiesController < Api::ApplicationController
-  include Authorization::ApiToken
+  include Authorization::Basic
 
+  before_action :authenticate!
   before_action :set_propertie, only: %i[show edit update]
 
   def index
@@ -8,6 +9,7 @@ class Api::PropertiesController < Api::ApplicationController
 
     render(
       json: @properties,
+      adapter: :json,
       each_serializer: PropertieSerializer,
       meta: pagination_meta(@properties)
     )

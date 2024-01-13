@@ -1,4 +1,0 @@
-pt-BR:
-  api:
-    token:
-      invalid: Autenticação falhou. Token inválido.

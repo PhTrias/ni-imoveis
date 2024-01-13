@@ -1,0 +1,16 @@
+---
+pt-BR:
+  propertie:
+    business_type: Tipo de Negócio
+    value: Valor
+    iptu: IPTU
+    condominium: Condominio
+    size: Tamanho
+    rooms: Quartos
+    zone: Zona
+    address: Endereço
+    number: Número
+    neighborhood: Bairro
+    complement: Complemento
+    cep: CEP
+    full_price: Valor total
