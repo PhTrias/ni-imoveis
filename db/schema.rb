@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_12_015359) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_13_235453) do
   create_table "properties", force: :cascade do |t|
     t.string "business_type"
     t.integer "value"
@@ -27,6 +27,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_015359) do
     t.integer "full_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json "pictures", default: []
   end
-
 end

@@ -1,4 +1,6 @@
 class Propertie < ApplicationRecord
+  serialize :pictures, Array
+  
   validates :business_type, presence: true
   validates :value, presence: true
   validates :size, presence: true
