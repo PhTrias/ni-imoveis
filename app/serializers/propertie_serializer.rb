@@ -1,5 +1,6 @@
 class PropertieSerializer < ActiveModel::Serializer
   attributes %i[
+    id
     business_type
     value
     iptu
