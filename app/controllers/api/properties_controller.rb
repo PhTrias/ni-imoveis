@@ -6,19 +6,11 @@ class Api::PropertiesController < Api::ApplicationController
 
   def index
     @properties = Propertie
-      .by_business_type(params[:business_type])
-      .by_value(params[:value])
-      .by_iptu(params[:iptu])
-      .by_condominium(params[:condominium])
-      .by_size(params[:size])
-      .by_rooms(params[:rooms])
-      .by_zone(params[:zone])
-      .by_address(params[:address])
-      .by_number(params[:number])
-      .by_neighborhood(params[:neighborhood])
-      .by_complement(params[:complement])
-      .by_cep(params[:cep])
-      .by_full_price(params[:full_price])
+      .by_business_type(filter_params[:business_type])
+      .by_value_range(filter_params[:min_value], filter_params[:max_value])
+      .by_size_range(filter_params[:min_size], filter_params[:max_size])
+      .by_rooms(filter_params[:rooms])
+      .by_zone(filter_params[:zone])
 
     render(
       json: @properties,
@@ -44,6 +36,16 @@ class Api::PropertiesController < Api::ApplicationController
     end
   end
 
+  def create
+    propertie = Propertie.new(propertie_params)
+
+    if propertie.save
+      render json: { seccessful: true, message: "Imóvel criado com sucesso!" }
+    else
+      render json: { successful: false, message: "Erro ao criar imóvel. Erro #{propertie.errors}" }
+    end
+  end
+
   private
 
   def set_propertie
@@ -64,7 +66,20 @@ class Api::PropertiesController < Api::ApplicationController
       :neighborhood,
       :complement,
       :cep,
-      :full_price
+      :full_price,
+      pictures: []
+    )
+  end
+
+  def filter_params
+    params.permit(
+      :business_type,
+      :min_value,
+      :max_value,
+      :min_size,
+      :max_size,
+      :rooms,
+      :zone
     )
   end
 end
