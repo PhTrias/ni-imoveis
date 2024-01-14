@@ -11,6 +11,9 @@ class Api::PropertiesController < Api::ApplicationController
       .by_size_range(filter_params[:min_size], filter_params[:max_size])
       .by_rooms(filter_params[:rooms])
       .by_zone(filter_params[:zone])
+      .order(:updated_at)
+      .page(filter_params[:page] || 1)
+      .per(filter_params[:per_page] || 8)
 
     render(
       json: @properties,
