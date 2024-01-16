@@ -6,7 +6,7 @@ class Api::PropertiesController < Api::ApplicationController
 
   def index
     @properties = Propertie
-      .by_business_type(filter_params[:business_type])
+      .by_neighborhood(filter_params[:neighborhood])
       .by_value_range(filter_params[:min_value], filter_params[:max_value])
       .by_size_range(filter_params[:min_size], filter_params[:max_size])
       .by_rooms(filter_params[:rooms])
@@ -70,6 +70,7 @@ class Api::PropertiesController < Api::ApplicationController
       :complement,
       :cep,
       :full_price,
+      :description,
       pictures: []
     )
   end

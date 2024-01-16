@@ -14,6 +14,7 @@ class PropertieSerializer < ActiveModel::Serializer
     complement
     cep
     full_price
+    description
     pictures
   ]
 
@@ -67,6 +68,9 @@ class PropertieSerializer < ActiveModel::Serializer
 
   def full_price
     {label: I18n.t("propertie.full_price"), value: object.full_price }
+  end
+  def description
+    {label: I18n.t("propertie.description"), value: object.description }
   end
 
   def pictures
