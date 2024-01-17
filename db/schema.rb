@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_17_165148) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_17_201037) do
   create_table "properties", force: :cascade do |t|
     t.string "business_type"
     t.integer "value"
@@ -35,5 +35,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_17_165148) do
     t.boolean "furnished", default: false
     t.boolean "subway_close", default: false
     t.boolean "pet_friendly", default: false
+    t.boolean "active", default: true
   end
 end

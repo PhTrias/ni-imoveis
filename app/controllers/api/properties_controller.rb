@@ -6,12 +6,13 @@ class Api::PropertiesController < Api::ApplicationController
 
   def index
     @properties = Propertie
+      .active
+      .by_rooms(filter_params[:rooms])
+      .by_car_spaces(filter_params[:car_spaces])
+      .by_business_type(filter_params[:business_type])
       .by_neighborhood(filter_params[:neighborhood])
       .by_value_range(filter_params[:min_value], filter_params[:max_value])
       .by_size_range(filter_params[:min_size], filter_params[:max_size])
-      .by_rooms(filter_params[:rooms])
-      .by_zone(filter_params[:zone])
-      .order(:updated_at)
       .page(filter_params[:page] || 1)
       .per(filter_params[:per_page] || 8)
 
@@ -82,12 +83,13 @@ class Api::PropertiesController < Api::ApplicationController
   def filter_params
     params.permit(
       :business_type,
+      :neighborhood,
       :min_value,
       :max_value,
       :min_size,
       :max_size,
       :rooms,
-      :zone
+      :car_spaces
     )
   end
 end
