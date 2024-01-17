@@ -43,7 +43,11 @@ class Api::PropertiesController < Api::ApplicationController
     propertie = Propertie.new(propertie_params)
 
     if propertie.save
-      render json: { seccessful: true, message: "Imóvel criado com sucesso!" }
+      render(
+        json: propertie,
+        adapter: :json,
+        serializer: PropertieSerializer,
+      )
     else
       render json: { successful: false, message: "Erro ao criar imóvel. Erro #{propertie.errors}" }
     end

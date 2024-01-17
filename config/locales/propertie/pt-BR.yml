@@ -15,4 +15,10 @@ pt-BR:
     cep: CEP
     full_price: Valor total
     description: Descrição
+    bathrooms: Banheiros
+    car_spaces: Vagas
+    floors: Andares
+    furnished: Mobiliada?
+    subway_close: Metrô Próximo?
+    pet_friendly: Aceita Pet?
     pictures: Fotos

@@ -15,6 +15,12 @@ class PropertieSerializer < ActiveModel::Serializer
     cep
     full_price
     description
+    bathrooms
+    car_spaces
+    floors
+    furnished
+    subway_close
+    pet_friendly
     pictures
   ]
 
@@ -76,4 +82,29 @@ class PropertieSerializer < ActiveModel::Serializer
   def pictures
     {label: I18n.t("propertie.pictures"), value: object.pictures }
   end
+
+  def bathrooms
+    {label: I18n.t("propertie.bathrooms"), value: object.bathrooms }
+  end
+
+  def car_spaces
+    {label: I18n.t("propertie.car_spaces"), value: object.car_spaces }
+  end
+
+  def floors
+    {label: I18n.t("propertie.floors"), value: object.floors }
+  end
+
+  def furnished
+    {label: I18n.t("propertie.furnished"), value: object.furnished }
+  end
+
+  def subway_close
+    {label: I18n.t("propertie.subway_close"), value: object.subway_close }
+  end
+
+  def pet_friendly
+    {label: I18n.t("propertie.pet_friendly"), value: object.pet_friendly }
+  end
+
 end
