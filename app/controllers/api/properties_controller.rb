@@ -76,6 +76,11 @@ class Api::PropertiesController < Api::ApplicationController
       :cep,
       :full_price,
       :description,
+      :car_spaces,
+      :floors,
+      :furnished,
+      :subway_close,
+      :pet_friendly,
       pictures: []
     )
   end
