@@ -13,8 +13,9 @@ class Api::PropertiesController < Api::ApplicationController
       .by_neighborhood(filter_params[:neighborhood])
       .by_value_range(filter_params[:min_value], filter_params[:max_value])
       .by_size_range(filter_params[:min_size], filter_params[:max_size])
+      .order(filter_params[:order] || :updated_at)
       .page(filter_params[:page] || 1)
-      .per(filter_params[:per_page] || 8)
+      .per(filter_params[:per_page] || 10)
 
     render(
       json: @properties,
@@ -96,6 +97,9 @@ class Api::PropertiesController < Api::ApplicationController
       :max_size,
       :rooms,
       :car_spaces
+      :per_page,
+      :page,
+      :order
     )
   end
 end
