@@ -96,7 +96,7 @@ class Api::PropertiesController < Api::ApplicationController
       :min_size,
       :max_size,
       :rooms,
-      :car_spaces
+      :car_spaces,
       :per_page,
       :page,
       :order
