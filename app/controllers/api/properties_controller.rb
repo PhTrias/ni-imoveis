@@ -73,6 +73,7 @@ class Api::PropertiesController < Api::ApplicationController
       :number,
       :neighborhood,
       :complement,
+      :bathrooms,
       :cep,
       :full_price,
       :description,
